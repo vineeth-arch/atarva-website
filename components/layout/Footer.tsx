@@ -1,6 +1,7 @@
 "use client";
 
 import CyanRule from "@/components/ui/CyanRule";
+import AvartaLogo from "@/components/ui/AvartaLogo";
 
 const footerLinks = [
   { label: "About", href: "#about" },
@@ -13,7 +14,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-midnight border-t border-white/[0.06]" role="contentinfo">
+    <footer className="bg-midnight border-t border-subtle" role="contentinfo">
       <div className="container-site py-16">
         <CyanRule className="mb-12" width="64px" />
 
@@ -22,15 +23,10 @@ export default function Footer() {
           <div className="md:col-span-1">
             <a
               href="#hero"
-              className="flex flex-col leading-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flow rounded-sm mb-4 inline-flex"
+              className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flow rounded-sm mb-4 inline-flex"
               aria-label="Avarta — home"
             >
-              <span className="font-display text-stellar text-2xl tracking-tight">
-                AVARTA
-              </span>
-              <span className="font-mono text-[9px] text-stellar/40 tracking-[0.2em] uppercase mt-1">
-                IT &amp; Design Solutions Pvt. Ltd.
-              </span>
+              <AvartaLogo showTagline={false} />
             </a>
             <p className="text-stellar/50 text-sm leading-relaxed mt-4 max-w-xs">
               An interdisciplinary think tank and consultancy where technical
@@ -77,7 +73,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="pt-8 border-t border-subtle flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <p className="font-mono text-[11px] text-stellar/30 tracking-wide">
             © {new Date().getFullYear()} Avarta IT and Design Solutions Pvt. Ltd. All rights reserved.
           </p>

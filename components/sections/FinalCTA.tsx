@@ -57,7 +57,7 @@ export default function FinalCTA() {
   };
 
   const inputBase =
-    "w-full bg-midnight/60 border border-white/10 rounded-sm px-4 py-3 text-sm text-stellar placeholder-stellar/30 font-sans transition-all duration-200 focus:outline-none focus:border-flow/60 focus:ring-1 focus:ring-flow/30";
+    "w-full bg-midnight/60 border rounded-sm px-4 py-3 text-sm text-stellar placeholder-stellar/30 font-sans transition-all duration-200 focus:outline-none focus:border-flow/60 focus:ring-1 focus:ring-flow/30 border-subtle";
 
   return (
     <section

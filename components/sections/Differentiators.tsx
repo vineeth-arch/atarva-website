@@ -58,7 +58,7 @@ export default function Differentiators() {
     <section
       id="differentiators"
       className="section-padding relative overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #00022B 0%, #030520 100%)" }}
+      style={{ background: "var(--gradient-section-dark)" }}
       aria-labelledby="differentiators-heading"
     >
       {/* Ambient glow */}

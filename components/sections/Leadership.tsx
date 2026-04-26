@@ -89,18 +89,11 @@ export default function Leadership() {
               whileInView="visible"
               viewport={{ once: true, margin: "-60px" }}
               variants={cardReveal}
-              className="relative rounded-sm overflow-hidden"
-              style={{
-                background:
-                  leader.side === "technical"
-                    ? "linear-gradient(145deg, rgba(0,80,255,0.09) 0%, rgba(0,2,43,0.75) 100%)"
-                    : "linear-gradient(145deg, rgba(123,68,149,0.12) 0%, rgba(0,2,43,0.75) 100%)",
-                border: `1px solid ${
-                  leader.side === "technical"
-                    ? "rgba(0,80,255,0.2)"
-                    : "rgba(123,68,149,0.25)"
-                }`,
-              }}
+              className={`relative rounded-sm overflow-hidden ${
+                leader.side === "technical"
+                  ? "leadership-card-technical"
+                  : "leadership-card-design"
+              }`}
             >
               {/* Top accent line */}
               <div
