@@ -53,12 +53,8 @@ export default function GlassSymbol({
 
       <motion.div
         className="absolute inset-0 flex items-center justify-center"
-        animate={prefersReducedMotion ? {} : { rotateY: 360, rotateZ: 360 }}
-        transition={{ duration: 96, repeat: Infinity, ease: "linear" }}
-        style={{
-          transformStyle: "preserve-3d",
-          perspective: 1200,
-        }}
+        animate={prefersReducedMotion ? {} : { rotate: 360 }}
+        transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
       >
         <div className="relative" style={{ width: markSize, height: markSize }}>
           <Image

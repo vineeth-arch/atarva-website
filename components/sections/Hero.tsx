@@ -82,7 +82,7 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               variants={fadeUp}
-              className="font-display text-h1 text-stellar font-bold leading-none mb-6"
+              className="font-display text-h1 text-stellar font-semibold leading-none mb-6"
             >
               Where Technical Precision
               <br />

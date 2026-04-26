@@ -92,22 +92,15 @@ export default function LogoRail() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: EASE }}
-          className="mb-14 grid gap-6 lg:grid-cols-[1fr_0.75fr] lg:items-end"
+          className="mb-14"
         >
-          <div>
-            <SectionLabel className="mb-4">Who We Work With</SectionLabel>
-            <h2
-              id="clients-heading"
-              className="font-display text-h2 text-stellar font-semibold max-w-2xl leading-tight"
-            >
-              A curated field of institutions, industry, and ambitious teams.
-            </h2>
-          </div>
-          <p className="max-w-md text-base leading-relaxed text-stellar/52 lg:justify-self-end">
-            Logo slots are structured for real partner marks; the current
-            treatment keeps the strip refined while final approved assets are
-            swapped in.
-          </p>
+          <SectionLabel className="mb-4">Who We Work With</SectionLabel>
+          <h2
+            id="clients-heading"
+            className="font-display text-h2 text-stellar font-semibold max-w-2xl leading-tight"
+          >
+            A curated field of institutions, industry, and ambitious teams.
+          </h2>
         </motion.div>
 
         <motion.div
