@@ -20,6 +20,7 @@ const capabilities = [
       "Research support and applied engineering",
       "Technical documentation and reporting",
     ],
+    accentColor: "rgba(0,80,255,0.18)",
   },
   {
     id: "design",
@@ -34,6 +35,7 @@ const capabilities = [
       "Packaging and spatial design",
       "Strategic design systems",
     ],
+    accentColor: "rgba(123,68,149,0.18)",
   },
   {
     id: "learning",
@@ -48,6 +50,7 @@ const capabilities = [
       "Research collaboration",
       "Knowledge systems design",
     ],
+    accentColor: "rgba(0,229,195,0.12)",
   },
 ];
 
@@ -74,6 +77,16 @@ export default function Capabilities() {
       className="section-padding bg-midnight relative overflow-hidden"
       aria-labelledby="capabilities-heading"
     >
+      {/* Layered background for glass backdrop to blur against */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,80,255,0.08) 0%, transparent 70%)",
+        }}
+        aria-hidden="true"
+      />
+
       {/* Grid texture */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.025]"
@@ -115,24 +128,34 @@ export default function Capabilities() {
             <motion.article
               key={cap.id}
               variants={cardReveal}
-              className="card-surface rounded-sm p-8 flex flex-col gap-5 transition-all duration-300 cursor-default group"
+              className="glass-cap rounded-sm p-8 flex flex-col gap-5 cursor-default relative overflow-hidden"
             >
-              <div className="flex flex-col gap-3">
+              {/* Per-card accent glow */}
+              <div
+                className="absolute top-0 right-0 w-32 h-32 rounded-full pointer-events-none"
+                style={{
+                  background: `radial-gradient(circle, ${cap.accentColor} 0%, transparent 70%)`,
+                  transform: "translate(30%, -30%)",
+                }}
+                aria-hidden="true"
+              />
+
+              <div className="flex flex-col gap-3 relative">
                 <span className="font-mono text-[10px] text-flow/70 tracking-widest uppercase">
                   {cap.label}
                 </span>
                 <CyanRule width="32px" />
               </div>
 
-              <h3 className="font-display text-h3 text-stellar leading-tight">
+              <h3 className="font-display text-h3 text-stellar leading-tight relative">
                 {cap.title}
               </h3>
 
-              <p className="text-stellar/55 text-sm leading-relaxed">
+              <p className="text-stellar/55 text-sm leading-relaxed relative">
                 {cap.description}
               </p>
 
-              <ul className="flex flex-col gap-2 mt-auto" role="list">
+              <ul className="flex flex-col gap-2 mt-auto relative" role="list">
                 {cap.points.map((point) => (
                   <li
                     key={point}
