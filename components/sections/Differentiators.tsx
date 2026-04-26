@@ -83,7 +83,7 @@ export default function Differentiators() {
           <SectionLabel className="mb-4">Why Avarta</SectionLabel>
           <h2
             id="differentiators-heading"
-            className="font-display text-h2 text-stellar leading-tight"
+            className="font-display text-h2 text-stellar font-semibold leading-tight"
           >
             Five principles that shape every engagement.
           </h2>
@@ -101,8 +101,16 @@ export default function Differentiators() {
             <motion.article
               key={value.number}
               variants={cardReveal}
-              className="card-surface rounded-sm p-7 flex flex-col gap-4 transition-all duration-300 cursor-default"
+              className="card-surface relative overflow-hidden rounded-sm p-7 flex flex-col gap-4 transition-all duration-300 cursor-default"
             >
+              <div
+                className="absolute inset-x-0 top-0 h-px"
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent, rgba(77,163,255,0.48), transparent)",
+                }}
+                aria-hidden="true"
+              />
               <div className="flex items-center justify-between">
                 <span className="font-mono text-[10px] text-flow/50 tracking-widest">
                   {value.number}
@@ -130,8 +138,16 @@ export default function Differentiators() {
             <motion.article
               key={value.number}
               variants={cardReveal}
-              className="card-surface rounded-sm p-7 flex flex-col gap-4 transition-all duration-300 cursor-default"
+              className="card-surface relative overflow-hidden rounded-sm p-7 flex flex-col gap-4 transition-all duration-300 cursor-default"
             >
+              <div
+                className="absolute inset-x-0 top-0 h-px"
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent, rgba(77,163,255,0.48), transparent)",
+                }}
+                aria-hidden="true"
+              />
               <div className="flex items-center justify-between">
                 <span className="font-mono text-[10px] text-flow/50 tracking-widest">
                   {value.number}

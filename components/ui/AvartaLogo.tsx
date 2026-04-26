@@ -25,11 +25,11 @@ export default function AvartaLogo({
         priority={showTagline}
       />
       <Image
-        src="/logos/avarta-lockup-horizontal-black.svg"
+        src="/logos/avarta-lockup-horizontal-color.svg"
         alt="Avarta IT and Design Solutions"
         width={width}
         height={height}
-        className="avarta-logo-on-light absolute inset-0 h-full w-auto object-contain"
+        className="avarta-logo-color absolute inset-0 h-full w-auto object-contain"
         priority={showTagline}
       />
       <span className="sr-only">

@@ -110,7 +110,7 @@ export default function Capabilities() {
           <SectionLabel className="mb-4">What We Do</SectionLabel>
           <h2
             id="capabilities-heading"
-            className="font-display text-h2 text-stellar max-w-lg leading-tight"
+            className="font-display text-h2 text-stellar font-semibold max-w-lg leading-tight"
           >
             Three capability domains, one integrated approach.
           </h2>

@@ -67,7 +67,7 @@ export default function Leadership() {
           <SectionLabel className="mb-4">Leadership</SectionLabel>
           <h2
             id="leadership-heading"
-            className="font-display text-h2 text-stellar leading-tight"
+            className="font-display text-h2 text-stellar font-semibold leading-tight"
           >
             The duality at Avarta&rsquo;s core.
           </h2>
@@ -113,7 +113,7 @@ export default function Leadership() {
                   <span className="label-mono text-[10px] mb-3 block">
                     {leader.discipline}
                   </span>
-                  <h3 className="font-display text-h3 text-stellar leading-tight mb-1">
+                  <h3 className="font-display text-[clamp(32px,4vw,48px)] font-semibold text-stellar leading-[1.02] mb-2">
                     {leader.name}
                   </h3>
                   <p className="font-mono text-[11px] text-stellar/40 tracking-wide">

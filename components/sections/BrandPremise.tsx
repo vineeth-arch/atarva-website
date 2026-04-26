@@ -46,7 +46,7 @@ export default function BrandPremise() {
             <SectionLabel className="mb-6">Our Philosophy</SectionLabel>
             <h2
               id="premise-heading"
-              className="font-display text-h2 text-stellar leading-tight"
+              className="font-display text-h2 text-stellar font-semibold leading-tight"
             >
               Complex problems do not live in silos.
             </h2>

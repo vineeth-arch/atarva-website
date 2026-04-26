@@ -82,7 +82,7 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               variants={fadeUp}
-              className="font-display text-h1 text-stellar leading-[1.04] tracking-tight mb-6"
+              className="font-display text-h1 text-stellar font-bold leading-none mb-6"
             >
               Where Technical Precision
               <br />
@@ -95,7 +95,7 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               variants={fadeUp}
-              className="text-stellar/65 text-lg leading-relaxed max-w-2xl mb-10"
+              className="text-stellar/68 text-lg md:text-xl leading-relaxed max-w-2xl mb-10"
             >
               Avarta is an interdisciplinary think tank and consultancy
               combining computational engineering, design intelligence, and

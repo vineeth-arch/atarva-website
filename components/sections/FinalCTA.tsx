@@ -59,7 +59,7 @@ export default function FinalCTA() {
   };
 
   const inputBase =
-    "w-full bg-midnight/60 border rounded-sm px-4 py-3 text-base text-stellar placeholder-stellar/30 font-sans transition-all duration-200 focus:outline-none focus:border-flow/60 focus:ring-1 focus:ring-flow/30 border-subtle";
+    "w-full rounded-sm border px-4 py-3 text-base font-sans transition-all duration-200 focus:outline-none focus:border-flow/70 focus:ring-1 focus:ring-flow/30 bg-midnight/55 text-stellar placeholder-stellar/32 border-subtle";
 
   return (
     <section
@@ -105,7 +105,7 @@ export default function FinalCTA() {
             <SectionLabel className="mb-6">Start a Conversation</SectionLabel>
             <h2
               id="cta-heading"
-              className="font-display text-h2 text-stellar leading-tight mb-6"
+              className="font-display text-h2 text-stellar font-semibold leading-tight mb-6"
             >
               Let&rsquo;s build something that lasts.
             </h2>
@@ -170,11 +170,7 @@ export default function FinalCTA() {
           >
             {formState === "success" ? (
               <div
-                className="rounded-sm p-8 flex flex-col gap-4 items-start"
-                style={{
-                  background: "rgba(0,2,43,0.6)",
-                  border: "1px solid rgba(77,163,255,0.34)",
-                }}
+                className="contact-panel rounded-sm p-8 flex flex-col gap-4 items-start"
                 role="alert"
                 aria-live="polite"
               >
@@ -196,12 +192,7 @@ export default function FinalCTA() {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="rounded-sm p-8 flex flex-col gap-5"
-                style={{
-                  background: "rgba(0,2,43,0.5)",
-                  border: "1px solid rgba(240,242,248,0.08)",
-                  backdropFilter: "blur(8px)",
-                }}
+                className="contact-panel rounded-sm p-8 flex flex-col gap-5"
                 noValidate
                 aria-label="Enquiry form"
               >
@@ -209,7 +200,7 @@ export default function FinalCTA() {
                   <div className="flex flex-col gap-1.5">
                     <label
                       htmlFor="name"
-                      className="font-mono text-[11px] text-stellar/50 tracking-widest uppercase"
+                      className="font-mono text-[11px] text-stellar/58 tracking-widest uppercase"
                     >
                       Name
                     </label>
@@ -228,7 +219,7 @@ export default function FinalCTA() {
                   <div className="flex flex-col gap-1.5">
                     <label
                       htmlFor="email"
-                      className="font-mono text-[11px] text-stellar/50 tracking-widest uppercase"
+                      className="font-mono text-[11px] text-stellar/58 tracking-widest uppercase"
                     >
                       Email
                     </label>
@@ -249,7 +240,7 @@ export default function FinalCTA() {
                 <div className="flex flex-col gap-1.5">
                   <label
                     htmlFor="organisation"
-                    className="font-mono text-[11px] text-stellar/50 tracking-widest uppercase"
+                    className="font-mono text-[11px] text-stellar/58 tracking-widest uppercase"
                   >
                     Organisation
                   </label>
@@ -268,7 +259,7 @@ export default function FinalCTA() {
                 <div className="flex flex-col gap-1.5">
                   <label
                     htmlFor="subject"
-                    className="font-mono text-[11px] text-stellar/50 tracking-widest uppercase"
+                    className="font-mono text-[11px] text-stellar/58 tracking-widest uppercase"
                   >
                     Subject
                   </label>
@@ -294,7 +285,7 @@ export default function FinalCTA() {
                 <div className="flex flex-col gap-1.5">
                   <label
                     htmlFor="message"
-                    className="font-mono text-[11px] text-stellar/50 tracking-widest uppercase"
+                    className="font-mono text-[11px] text-stellar/58 tracking-widest uppercase"
                   >
                     Message
                   </label>
@@ -339,12 +330,7 @@ export default function FinalCTA() {
 
             <div
               id="booking"
-              className="mt-6 rounded-sm p-6"
-              style={{
-                background: "rgba(0,2,43,0.45)",
-                border: "1px solid rgba(240,242,248,0.08)",
-                backdropFilter: "blur(8px)",
-              }}
+              className="contact-panel mt-6 rounded-sm p-6"
             >
               <div className="flex flex-col gap-4">
                 <div>

@@ -27,10 +27,10 @@ const config: Config = {
         mono: ["var(--font-mono)", "monospace"],
       },
       fontSize: {
-        display: ["clamp(56px,8vw,96px)", { lineHeight: "1", letterSpacing: "-0.03em" }],
-        h1: ["clamp(40px,5vw,56px)", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
-        h2: ["clamp(26px,3.5vw,36px)", { lineHeight: "1.15", letterSpacing: "-0.015em" }],
-        h3: ["clamp(20px,2.5vw,26px)", { lineHeight: "1.25", letterSpacing: "-0.01em" }],
+        display: ["clamp(56px,8vw,96px)", { lineHeight: "1", letterSpacing: "0" }],
+        h1: ["clamp(44px,5.4vw,68px)", { lineHeight: "0.98", letterSpacing: "0" }],
+        h2: ["clamp(30px,3.8vw,46px)", { lineHeight: "1.05", letterSpacing: "0" }],
+        h3: ["clamp(21px,2.5vw,30px)", { lineHeight: "1.16", letterSpacing: "0" }],
         "mono-sm": ["13px", { lineHeight: "1.5" }],
       },
       backgroundImage: {

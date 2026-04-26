@@ -1,18 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 
-/*
- * SWAP POINT: Replace <AvartaSymbolMark /> with a real asset once provided.
- * Example:
- *   <img src="/avarta-symbol.svg" alt="" aria-hidden="true"
- *        className="w-full h-full object-contain" />
- */
-
 const SIZE_MAP = {
-  sm: 160,
-  md: 240,
-  lg: 320,
+  sm: 168,
+  md: 248,
+  lg: 340,
 } as const;
 
 interface GlassSymbolProps {
@@ -26,6 +20,7 @@ export default function GlassSymbol({
 }: GlassSymbolProps) {
   const prefersReducedMotion = useReducedMotion();
   const px = SIZE_MAP[size];
+  const markSize = Math.round(px * 0.66);
 
   return (
     <div
@@ -34,130 +29,105 @@ export default function GlassSymbol({
       aria-hidden="true"
       role="presentation"
     >
-      {/* 1. Outer ambient glow pulse */}
-      <motion.div
-        className="absolute rounded-full pointer-events-none"
+      <div
+        className="absolute inset-[-13%] rounded-full opacity-90"
         style={{
-          inset: "-20%",
           background:
-            "radial-gradient(circle, rgba(0,80,255,0.14) 0%, transparent 65%)",
+            "radial-gradient(circle, rgba(0,80,255,0.20) 0%, rgba(123,68,149,0.09) 38%, transparent 68%)",
+          filter: "blur(4px)",
         }}
-        animate={
-          prefersReducedMotion
-            ? {}
-            : { scale: [1, 1.08, 1], opacity: [0.55, 0.9, 0.55] }
-        }
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* 2. Glass disc base */}
       <div
         className="absolute inset-0 rounded-full glass-symbol-disc"
         style={{
           background:
-            "radial-gradient(circle at 38% 30%, rgba(0,80,255,0.13) 0%, rgba(0,2,43,0.52) 55%, rgba(0,80,255,0.04) 100%)",
-          backdropFilter: "blur(18px) saturate(150%)",
-          WebkitBackdropFilter: "blur(18px) saturate(150%)",
-          border: "1px solid rgba(240,242,248,0.10)",
+            "radial-gradient(circle at 34% 24%, rgba(240,242,248,0.15) 0%, rgba(77,163,255,0.12) 24%, rgba(7,16,86,0.44) 56%, rgba(3,7,48,0.12) 100%)",
+          backdropFilter: "blur(22px) saturate(155%)",
+          WebkitBackdropFilter: "blur(22px) saturate(155%)",
+          border: "1px solid rgba(240,242,248,0.13)",
           boxShadow:
-            "inset 0 1px 0 rgba(240,242,248,0.10), 0 0 50px rgba(0,80,255,0.12), 0 2px 8px rgba(0,0,0,0.3)",
+            "inset 0 1px 0 rgba(240,242,248,0.16), inset 18px 20px 42px rgba(240,242,248,0.035), 0 26px 90px rgba(0,80,255,0.18), 0 8px 28px rgba(0,0,0,0.28)",
         }}
       />
 
-      {/* 3. Rotating symbol mark */}
       <motion.div
         className="absolute inset-0 flex items-center justify-center"
-        animate={prefersReducedMotion ? {} : { rotate: 360 }}
-        transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
+        animate={prefersReducedMotion ? {} : { rotateY: 360, rotateZ: 360 }}
+        transition={{ duration: 96, repeat: Infinity, ease: "linear" }}
+        style={{
+          transformStyle: "preserve-3d",
+          perspective: 1200,
+        }}
       >
-        <AvartaSymbolMark size={px * 0.62} />
+        <div className="relative" style={{ width: markSize, height: markSize }}>
+          <Image
+            src="/logos/avarta-mark-color.svg"
+            alt=""
+            fill
+            sizes={`${markSize}px`}
+            className="object-contain opacity-95"
+            style={{
+              filter:
+                "drop-shadow(0 0 18px rgba(0,80,255,0.28)) drop-shadow(0 16px 34px rgba(0,2,43,0.28))",
+            }}
+            priority
+          />
+          <Image
+            src="/logos/avarta-mark-white.svg"
+            alt=""
+            fill
+            sizes={`${markSize}px`}
+            className="object-contain opacity-25 mix-blend-screen"
+            style={{
+              transform: "translate3d(-6px, -8px, 22px) scale(0.985)",
+              filter: "blur(0.4px)",
+            }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(130deg, rgba(255,255,255,0.38) 0%, transparent 26%, transparent 64%, rgba(77,163,255,0.18) 100%)",
+              mixBlendMode: "screen",
+              clipPath: "circle(48% at 50% 50%)",
+            }}
+          />
+        </div>
       </motion.div>
 
-      {/* 4. Counter-rotating outer ring (very subtle, slower) */}
       <motion.div
         className="absolute inset-[8%] rounded-full pointer-events-none"
         style={{
-          border: "1px solid rgba(77,163,255,0.08)",
+          border: "1px solid rgba(77,163,255,0.14)",
+          boxShadow: "inset 0 0 30px rgba(77,163,255,0.07)",
         }}
         animate={prefersReducedMotion ? {} : { rotate: -360 }}
-        transition={{ duration: 180, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 160, repeat: Infinity, ease: "linear" }}
       />
 
-      {/* 5. Inner rim highlight — simulates top-light glass refraction */}
       <div
         className="absolute inset-[3px] rounded-full pointer-events-none glass-symbol-rim"
         style={{
           background:
-            "radial-gradient(ellipse 60% 40% at 35% 25%, rgba(77,163,255,0.07) 0%, transparent 60%)",
-          border: "1px solid rgba(77,163,255,0.12)",
+            "radial-gradient(ellipse 62% 42% at 34% 22%, rgba(240,242,248,0.20) 0%, rgba(77,163,255,0.07) 34%, transparent 67%)",
+          border: "1px solid rgba(77,163,255,0.18)",
         }}
       />
 
-      {/* 6. Top specular highlight */}
       <div
         className="absolute rounded-full pointer-events-none"
         style={{
-          top: "10%",
-          left: "20%",
-          width: "35%",
-          height: "18%",
+          top: "9%",
+          left: "21%",
+          width: "36%",
+          height: "16%",
           background:
-            "radial-gradient(ellipse, rgba(240,242,248,0.12) 0%, transparent 70%)",
-          filter: "blur(4px)",
+            "radial-gradient(ellipse, rgba(240,242,248,0.22) 0%, transparent 72%)",
+          filter: "blur(5px)",
+          transform: "rotate(-18deg)",
         }}
       />
     </div>
-  );
-}
-
-/* Placeholder vortex symbol mark — concentric spiral arcs */
-function AvartaSymbolMark({ size }: { size: number }) {
-  const cx = size / 2;
-  const cy = size / 2;
-
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox={`0 0 ${size} ${size}`}
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      {/* Outer spiral arc */}
-      <path
-        d={`M ${cx} ${cy * 0.18} A ${cy * 0.82} ${cy * 0.82} 0 0 1 ${cx + cy * 0.82} ${cy}`}
-        stroke="#0050FF"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-        opacity="0.45"
-      />
-      {/* Middle spiral arc */}
-      <path
-        d={`M ${cx} ${cy * 0.38} A ${cy * 0.62} ${cy * 0.62} 0 0 1 ${cx + cy * 0.62} ${cy}`}
-        stroke="#0050FF"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-        opacity="0.65"
-      />
-      {/* Inner spiral arc */}
-      <path
-        d={`M ${cx} ${cy * 0.6} A ${cy * 0.4} ${cy * 0.4} 0 0 1 ${cx + cy * 0.4} ${cy}`}
-        stroke="#4DA3FF"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        opacity="0.85"
-      />
-      {/* Centre point */}
-      <circle cx={cx} cy={cy} r={size * 0.03} fill="#4DA3FF" opacity="0.9" />
-      {/* Outer circle boundary */}
-      <circle
-        cx={cx}
-        cy={cy}
-        r={cy * 0.9}
-        stroke="#0050FF"
-        strokeWidth="0.6"
-        opacity="0.18"
-      />
-    </svg>
   );
 }
