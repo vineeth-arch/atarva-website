@@ -4,10 +4,11 @@ import Hero from "@/components/sections/Hero";
 import BrandPremise from "@/components/sections/BrandPremise";
 import Capabilities from "@/components/sections/Capabilities";
 import Differentiators from "@/components/sections/Differentiators";
-import Sectors from "@/components/sections/Sectors";
+import LogoRail from "@/components/sections/LogoRail";
 import Method from "@/components/sections/Method";
 import Leadership from "@/components/sections/Leadership";
 import FinalCTA from "@/components/sections/FinalCTA";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 export default function Home() {
   return (
@@ -18,12 +19,13 @@ export default function Home() {
         <BrandPremise />
         <Capabilities />
         <Differentiators />
-        <Sectors />
+        <LogoRail />
         <Method />
         <Leadership />
         <FinalCTA />
       </main>
       <Footer />
+      <ThemeToggle />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,10 +10,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        midnight: "#00022B",
+        // midnight and stellar are theme-adaptive via CSS variables
+        midnight: "rgb(var(--c-bg) / <alpha-value>)",
+        stellar: "rgb(var(--c-text) / <alpha-value>)",
+        // accent colors are brand constants, unchanged across themes
         cobalt: "#0050FF",
         flow: "#00E5C3",
-        stellar: "#F0F2F8",
         orbit: "#1A2A5E",
         indigo: "#2E2B78",
         plum: "#7B4495",
