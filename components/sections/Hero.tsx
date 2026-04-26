@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 import VortexBackground from "@/components/ui/VortexBackground";
+import GlassSymbol from "@/components/ui/GlassSymbol";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -54,83 +55,118 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 container-site pt-32 pb-24">
-        <div className="max-w-4xl">
-          {/* Top label */}
-          <motion.div
-            custom={0}
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            className="mb-8"
-          >
-            <span className="label-mono inline-flex items-center gap-3">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-8 items-center">
+
+          {/* Left: text + CTAs */}
+          <div className="lg:col-span-3">
+            {/* Top label */}
+            <motion.div
+              custom={0}
+              initial="hidden"
+              animate="visible"
+              variants={fadeUp}
+              className="mb-8"
+            >
+              <span className="label-mono inline-flex items-center gap-3">
+                <span
+                  className="inline-block w-6 h-px bg-flow"
+                  aria-hidden="true"
+                />
+                Avarta IT and Design Solutions Pvt. Ltd.
+              </span>
+            </motion.div>
+
+            {/* Main headline */}
+            <motion.h1
+              custom={1}
+              initial="hidden"
+              animate="visible"
+              variants={fadeUp}
+              className="font-display text-h1 text-stellar leading-[1.04] tracking-tight mb-6"
+            >
+              Where Technical Precision
+              <br />
+              <span className="italic">Meets Creative Vision.</span>
+            </motion.h1>
+
+            {/* Subheadline */}
+            <motion.p
+              custom={2}
+              initial="hidden"
+              animate="visible"
+              variants={fadeUp}
+              className="text-stellar/65 text-lg leading-relaxed max-w-2xl mb-10"
+            >
+              Avarta is an interdisciplinary think tank and consultancy
+              combining computational engineering, design intelligence, and
+              research-led thinking to solve complex problems across industry
+              and academia.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              custom={3}
+              initial="hidden"
+              animate="visible"
+              variants={fadeUp}
+              className="flex flex-wrap gap-4 mb-14"
+            >
+              <Button variant="primary" size="lg" as="a" href="#contact">
+                Request a Proposal
+              </Button>
+              <Button variant="secondary" size="lg" as="a" href="#contact">
+                Book a Discovery Call
+              </Button>
+            </motion.div>
+
+            {/* Trust line */}
+            <motion.div
+              custom={4}
+              initial="hidden"
+              animate="visible"
+              variants={fadeUp}
+              className="flex items-center gap-3"
+            >
               <span
-                className="inline-block w-6 h-px bg-flow"
+                className="inline-block w-1 h-1 rounded-full bg-flow"
                 aria-hidden="true"
               />
-              Avarta IT and Design Solutions Pvt. Ltd.
-            </span>
-          </motion.div>
+              <p className="font-mono text-[11px] text-stellar/35 tracking-widest uppercase">
+                Built in India, trusted by forward-thinking organisations
+              </p>
+            </motion.div>
+          </div>
 
-          {/* Main headline */}
-          <motion.h1
-            custom={1}
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            className="font-display text-h1 text-stellar leading-[1.04] tracking-tight mb-6"
-          >
-            Where Technical Precision
-            <br />
-            <span className="italic">Meets Creative Vision.</span>
-          </motion.h1>
-
-          {/* Subheadline */}
-          <motion.p
-            custom={2}
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            className="text-stellar/65 text-lg leading-relaxed max-w-2xl mb-10"
-          >
-            Avarta is an interdisciplinary think tank and consultancy combining
-            computational engineering, design intelligence, and research-led
-            thinking to solve complex problems across industry and academia.
-          </motion.p>
-
-          {/* CTAs */}
+          {/* Right: glass symbol — desktop (lg+) */}
           <motion.div
-            custom={3}
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            className="flex flex-wrap gap-4 mb-14"
+            className="lg:col-span-2 hidden lg:flex justify-center items-center"
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.1, delay: 0.6, ease: EASE }}
           >
-            <Button variant="primary" size="lg" as="a" href="#contact">
-              Request a Proposal
-            </Button>
-            <Button variant="secondary" size="lg" as="a" href="#contact">
-              Book a Discovery Call
-            </Button>
-          </motion.div>
-
-          {/* Trust line */}
-          <motion.div
-            custom={4}
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            className="flex items-center gap-3"
-          >
-            <span
-              className="inline-block w-1 h-1 rounded-full bg-flow"
-              aria-hidden="true"
-            />
-            <p className="font-mono text-[11px] text-stellar/35 tracking-widest uppercase">
-              Built in India, trusted by forward-thinking organisations
-            </p>
+            <GlassSymbol size="lg" />
           </motion.div>
         </div>
+
+        {/* Glass symbol — tablet (md only, below text) */}
+        <motion.div
+          className="hidden md:flex lg:hidden justify-center mt-16"
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.0, delay: 0.7, ease: EASE }}
+        >
+          <GlassSymbol size="md" />
+        </motion.div>
+
+        {/* Glass symbol — mobile (sm and below) */}
+        <motion.div
+          className="flex md:hidden justify-center mt-12"
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, delay: 0.7, ease: EASE }}
+        >
+          <GlassSymbol size="sm" />
+        </motion.div>
       </div>
 
       {/* Bottom fade */}
@@ -138,7 +174,7 @@ export default function Hero() {
         className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
         style={{
           background:
-            "linear-gradient(to bottom, transparent, #00022B)",
+            "linear-gradient(to bottom, transparent, var(--hero-bottom-fade))",
         }}
         aria-hidden="true"
       />
