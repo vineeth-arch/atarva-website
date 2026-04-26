@@ -31,6 +31,35 @@ The contact form uses [Formspree](https://formspree.io) to deliver enquiries to 
 
 ---
 
+## Logos and brand assets
+
+Put Avarta logo files in `public/logos/`.
+
+Recommended names:
+
+- `public/logos/avarta-logo.svg`
+- `public/logos/avarta-logo-light.svg`
+- `public/logos/avarta-mark.svg`
+
+Anything inside `public/` is served from the site root, so `public/logos/avarta-logo.svg` is available in code as `/logos/avarta-logo.svg`.
+
+---
+
+## Calendly booking embed
+
+The contact section supports an embedded booking calendar.
+
+1. Copy `.env.example` to `.env.local`
+2. Add your Calendly scheduling URL:
+   ```bash
+   NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/your-name/intro-call
+   ```
+3. Restart the dev server
+
+When this value is present, the site embeds the calendar. Without it, the booking area shows an email-based meeting request button.
+
+---
+
 ## Custom font (Degular)
 
 The site currently uses **DM Serif Display** as the display/headline font — a close editorial stand-in for Degular.
@@ -75,7 +104,7 @@ Colors are defined in `tailwind.config.ts`:
 |---|---|---|
 | `midnight` | `#00022B` | Primary dark background |
 | `cobalt` | `#0050FF` | Electric blue accent |
-| `flow` | `#00E5C3` | Cyan-green signal accent |
+| `flow` | `#4DA3FF` | Blue signal accent |
 | `stellar` | `#F0F2F8` | Off-white text |
 | `orbit` | `#1A2A5E` | Mid-dark blue |
 | `indigo` | `#2E2B78` | Deep violet-blue |

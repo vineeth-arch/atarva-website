@@ -90,7 +90,7 @@ export default function LogoRail() {
         className="absolute top-0 left-0 right-0 h-px pointer-events-none"
         style={{
           background:
-            "linear-gradient(90deg, transparent 0%, rgba(0,229,195,0.15) 30%, rgba(0,229,195,0.15) 70%, transparent 100%)",
+            "linear-gradient(90deg, transparent 0%, rgba(77,163,255,0.15) 30%, rgba(77,163,255,0.15) 70%, transparent 100%)",
         }}
         aria-hidden="true"
       />

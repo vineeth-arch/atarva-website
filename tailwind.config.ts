@@ -15,7 +15,7 @@ const config: Config = {
         stellar: "rgb(var(--c-text) / <alpha-value>)",
         // accent colors are brand constants, unchanged across themes
         cobalt: "#0050FF",
-        flow: "#00E5C3",
+        flow: "#4DA3FF",
         orbit: "#1A2A5E",
         indigo: "#2E2B78",
         plum: "#7B4495",
@@ -44,7 +44,7 @@ const config: Config = {
       },
       boxShadow: {
         "cobalt-glow": "0 0 40px rgba(0,80,255,0.25), 0 0 80px rgba(0,80,255,0.1)",
-        "flow-glow": "0 0 20px rgba(0,229,195,0.3)",
+        "flow-glow": "0 0 20px rgba(77,163,255,0.3)",
         "card-hover": "0 0 0 1px rgba(0,80,255,0.4), 0 8px 32px rgba(0,80,255,0.15)",
       },
       animation: {

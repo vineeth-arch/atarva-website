@@ -21,7 +21,7 @@
   --gradient-section-dark: linear-gradient(180deg, #030520 0%, #00022B 100%);
 
   --border-subtle: rgba(240,242,248,0.08);
-  --border-flow: rgba(0,229,195,0.2);
+  --border-flow: rgba(77,163,255,0.24);
   --border-cobalt: rgba(0,80,255,0.25);
 
   --hero-bottom-fade: #00022B;
@@ -38,7 +38,7 @@ html.light {
   --gradient-banner: linear-gradient(180deg, #e8e6ff 0%, #f0e8ff 58%, #faeeff 100%);
 
   --border-subtle: rgba(0,2,43,0.07);
-  --border-flow: rgba(0,229,195,0.35);
+  --border-flow: rgba(77,163,255,0.35);
   --border-cobalt: rgba(0,80,255,0.18);
 
   --hero-bottom-fade: #F4F6FF;
@@ -55,13 +55,14 @@ html.light {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 17px;
   }
 
   body {
     background-color: rgb(var(--c-bg));
     color: rgb(var(--c-text));
     font-family: var(--font-sans);
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.65;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
@@ -72,7 +73,7 @@ html.light {
   }
 
   :focus-visible {
-    outline: 2px solid #00E5C3;
+    outline: 2px solid #4DA3FF;
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -131,7 +132,19 @@ html.light {
     font-size: 11px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #00E5C3;
+    color: #4DA3FF;
+  }
+
+  .avarta-logo-on-light {
+    opacity: 0;
+  }
+
+  html.light .avarta-logo-on-dark {
+    opacity: 0;
+  }
+
+  html.light .avarta-logo-on-light {
+    opacity: 1;
   }
 
   .text-gradient-cobalt {
@@ -225,8 +238,8 @@ html.light {
   }
 
   html.light .glass-symbol-rim {
-    background: radial-gradient(ellipse 60% 40% at 35% 25%, rgba(0,229,195,0.10) 0%, transparent 60%) !important;
-    border-color: rgba(0,229,195,0.20) !important;
+    background: radial-gradient(ellipse 60% 40% at 35% 25%, rgba(77,163,255,0.10) 0%, transparent 60%) !important;
+    border-color: rgba(77,163,255,0.20) !important;
   }
 
   /* ── Logo rail marquee ── */

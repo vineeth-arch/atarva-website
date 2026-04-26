@@ -30,7 +30,7 @@ export default function Button({
 
   const variants = {
     primary:
-      "bg-cobalt text-stellar hover:bg-[#0040DD] hover:shadow-cobalt-glow active:scale-[0.98]",
+      "bg-cobalt text-white hover:bg-[#0040DD] hover:shadow-cobalt-glow active:scale-[0.98]",
     secondary:
       "border border-stellar/20 text-stellar hover:border-cobalt hover:text-stellar hover:bg-cobalt/10 active:scale-[0.98]",
     ghost:

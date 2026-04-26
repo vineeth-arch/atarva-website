@@ -75,7 +75,7 @@ function VortexDiagram() {
           key={i}
           d={arcPath(x, NODE_X[i + 1])}
           fill="none"
-          stroke="#00E5C3"
+          stroke="#4DA3FF"
           strokeWidth="1"
           strokeOpacity="0.30"
           strokeLinecap="round"
@@ -125,7 +125,7 @@ function VortexDiagram() {
           cy={NODE_Y}
           r="7"
           fill="rgba(0,2,43,0.85)"
-          stroke="#00E5C3"
+          stroke="#4DA3FF"
           strokeWidth="1.5"
           initial={{ scale: 0, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -146,7 +146,7 @@ function VortexDiagram() {
           cx={x}
           cy={NODE_Y}
           r="2"
-          fill="#00E5C3"
+          fill="#4DA3FF"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-60px" }}
@@ -168,7 +168,7 @@ function VortexDiagram() {
           fontFamily="var(--font-mono)"
           fontSize="10"
           letterSpacing="0.14em"
-          fill="#00E5C3"
+          fill="#4DA3FF"
           fillOpacity="0.7"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

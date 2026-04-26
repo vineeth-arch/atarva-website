@@ -101,7 +101,7 @@ export default function Leadership() {
                 style={{
                   background:
                     leader.side === "technical"
-                      ? "linear-gradient(90deg, rgba(0,229,195,0.6), transparent)"
+                      ? "linear-gradient(90deg, rgba(77,163,255,0.65), transparent)"
                       : "linear-gradient(90deg, rgba(163,81,143,0.6), transparent)",
                 }}
                 aria-hidden="true"
@@ -153,7 +153,7 @@ export default function Leadership() {
                   style={{
                     color:
                       leader.side === "technical"
-                        ? "rgba(0,229,195,0.7)"
+                        ? "rgba(77,163,255,0.8)"
                         : "rgba(163,81,143,0.9)",
                   }}
                 >

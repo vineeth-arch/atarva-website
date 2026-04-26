@@ -77,7 +77,7 @@ export default function GlassSymbol({
       <motion.div
         className="absolute inset-[8%] rounded-full pointer-events-none"
         style={{
-          border: "1px solid rgba(0,229,195,0.08)",
+          border: "1px solid rgba(77,163,255,0.08)",
         }}
         animate={prefersReducedMotion ? {} : { rotate: -360 }}
         transition={{ duration: 180, repeat: Infinity, ease: "linear" }}
@@ -88,8 +88,8 @@ export default function GlassSymbol({
         className="absolute inset-[3px] rounded-full pointer-events-none glass-symbol-rim"
         style={{
           background:
-            "radial-gradient(ellipse 60% 40% at 35% 25%, rgba(0,229,195,0.07) 0%, transparent 60%)",
-          border: "1px solid rgba(0,229,195,0.12)",
+            "radial-gradient(ellipse 60% 40% at 35% 25%, rgba(77,163,255,0.07) 0%, transparent 60%)",
+          border: "1px solid rgba(77,163,255,0.12)",
         }}
       />
 
@@ -139,16 +139,16 @@ function AvartaSymbolMark({ size }: { size: number }) {
         strokeLinecap="round"
         opacity="0.65"
       />
-      {/* Inner spiral arc — cyan */}
+      {/* Inner spiral arc */}
       <path
         d={`M ${cx} ${cy * 0.6} A ${cy * 0.4} ${cy * 0.4} 0 0 1 ${cx + cy * 0.4} ${cy}`}
-        stroke="#00E5C3"
+        stroke="#4DA3FF"
         strokeWidth="1.6"
         strokeLinecap="round"
         opacity="0.85"
       />
       {/* Centre point */}
-      <circle cx={cx} cy={cy} r={size * 0.03} fill="#00E5C3" opacity="0.9" />
+      <circle cx={cx} cy={cy} r={size * 0.03} fill="#4DA3FF" opacity="0.9" />
       {/* Outer circle boundary */}
       <circle
         cx={cx}

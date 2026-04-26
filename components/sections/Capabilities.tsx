@@ -50,7 +50,7 @@ const capabilities = [
       "Research collaboration",
       "Knowledge systems design",
     ],
-    accentColor: "rgba(0,229,195,0.12)",
+    accentColor: "rgba(77,163,255,0.12)",
   },
 ];
 

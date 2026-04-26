@@ -60,8 +60,8 @@ export default function VortexBackground({
         const gradient = ctx.createLinearGradient(cx - 200, cy, cx + 200, cy);
         gradient.addColorStop(0, `rgba(0,80,255,0)`);
         gradient.addColorStop(0.4, `rgba(0,80,255,${opacity * 1.2})`);
-        gradient.addColorStop(0.7, `rgba(0,229,195,${opacity * 0.8})`);
-        gradient.addColorStop(1, `rgba(0,229,195,0)`);
+        gradient.addColorStop(0.7, `rgba(77,163,255,${opacity * 0.8})`);
+        gradient.addColorStop(1, `rgba(77,163,255,0)`);
 
         ctx.strokeStyle = gradient;
         ctx.lineWidth = 1.2;

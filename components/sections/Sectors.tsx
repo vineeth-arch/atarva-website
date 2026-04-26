@@ -65,7 +65,7 @@ export default function Sectors() {
         className="absolute top-0 left-0 right-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(0,229,195,0.15), transparent)",
+            "linear-gradient(90deg, transparent, rgba(77,163,255,0.18), transparent)",
         }}
         aria-hidden="true"
       />

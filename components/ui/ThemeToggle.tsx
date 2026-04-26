@@ -38,7 +38,7 @@ function SunIcon() {
       height="18"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#00E5C3"
+      stroke="#4DA3FF"
       strokeWidth="1.75"
       strokeLinecap="round"
       strokeLinejoin="round"

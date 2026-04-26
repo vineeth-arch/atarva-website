@@ -16,6 +16,8 @@ const subjects = [
   "General Enquiry",
 ];
 
+const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL;
+
 export default function FinalCTA() {
   const [formState, setFormState] = useState<FormState>("idle");
   const [fields, setFields] = useState({
@@ -57,7 +59,7 @@ export default function FinalCTA() {
   };
 
   const inputBase =
-    "w-full bg-midnight/60 border rounded-sm px-4 py-3 text-sm text-stellar placeholder-stellar/30 font-sans transition-all duration-200 focus:outline-none focus:border-flow/60 focus:ring-1 focus:ring-flow/30 border-subtle";
+    "w-full bg-midnight/60 border rounded-sm px-4 py-3 text-base text-stellar placeholder-stellar/30 font-sans transition-all duration-200 focus:outline-none focus:border-flow/60 focus:ring-1 focus:ring-flow/30 border-subtle";
 
   return (
     <section
@@ -171,7 +173,7 @@ export default function FinalCTA() {
                 className="rounded-sm p-8 flex flex-col gap-4 items-start"
                 style={{
                   background: "rgba(0,2,43,0.6)",
-                  border: "1px solid rgba(0,229,195,0.3)",
+                  border: "1px solid rgba(77,163,255,0.34)",
                 }}
                 role="alert"
                 aria-live="polite"
@@ -207,7 +209,7 @@ export default function FinalCTA() {
                   <div className="flex flex-col gap-1.5">
                     <label
                       htmlFor="name"
-                      className="font-mono text-[10px] text-stellar/50 tracking-widest uppercase"
+                      className="font-mono text-[11px] text-stellar/50 tracking-widest uppercase"
                     >
                       Name
                     </label>
@@ -226,7 +228,7 @@ export default function FinalCTA() {
                   <div className="flex flex-col gap-1.5">
                     <label
                       htmlFor="email"
-                      className="font-mono text-[10px] text-stellar/50 tracking-widest uppercase"
+                      className="font-mono text-[11px] text-stellar/50 tracking-widest uppercase"
                     >
                       Email
                     </label>
@@ -247,7 +249,7 @@ export default function FinalCTA() {
                 <div className="flex flex-col gap-1.5">
                   <label
                     htmlFor="organisation"
-                    className="font-mono text-[10px] text-stellar/50 tracking-widest uppercase"
+                    className="font-mono text-[11px] text-stellar/50 tracking-widest uppercase"
                   >
                     Organisation
                   </label>
@@ -266,7 +268,7 @@ export default function FinalCTA() {
                 <div className="flex flex-col gap-1.5">
                   <label
                     htmlFor="subject"
-                    className="font-mono text-[10px] text-stellar/50 tracking-widest uppercase"
+                    className="font-mono text-[11px] text-stellar/50 tracking-widest uppercase"
                   >
                     Subject
                   </label>
@@ -292,7 +294,7 @@ export default function FinalCTA() {
                 <div className="flex flex-col gap-1.5">
                   <label
                     htmlFor="message"
-                    className="font-mono text-[10px] text-stellar/50 tracking-widest uppercase"
+                    className="font-mono text-[11px] text-stellar/50 tracking-widest uppercase"
                   >
                     Message
                   </label>
@@ -334,6 +336,47 @@ export default function FinalCTA() {
                 </p>
               </form>
             )}
+
+            <div
+              id="booking"
+              className="mt-6 rounded-sm p-6"
+              style={{
+                background: "rgba(0,2,43,0.45)",
+                border: "1px solid rgba(240,242,248,0.08)",
+                backdropFilter: "blur(8px)",
+              }}
+            >
+              <div className="flex flex-col gap-4">
+                <div>
+                  <span className="label-mono mb-3 block">Book a Meeting</span>
+                  <h3 className="font-display text-xl text-stellar mb-2">
+                    Prefer a call?
+                  </h3>
+                  <p className="text-stellar/60 text-base leading-relaxed">
+                    Choose a time for a discovery conversation with Avarta.
+                  </p>
+                </div>
+
+                {calendlyUrl ? (
+                  <iframe
+                    src={calendlyUrl}
+                    title="Book a discovery call with Avarta"
+                    className="min-h-[680px] w-full rounded-sm border border-white/10 bg-white"
+                    loading="lazy"
+                  />
+                ) : (
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    as="a"
+                    href="mailto:hello@avarta.in?subject=Discovery%20Call%20Request"
+                    className="w-full"
+                  >
+                    Request a Discovery Call
+                  </Button>
+                )}
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

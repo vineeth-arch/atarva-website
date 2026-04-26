@@ -114,7 +114,7 @@ export default function Hero() {
               <Button variant="primary" size="lg" as="a" href="#contact">
                 Request a Proposal
               </Button>
-              <Button variant="secondary" size="lg" as="a" href="#contact">
+              <Button variant="secondary" size="lg" as="a" href="#booking">
                 Book a Discovery Call
               </Button>
             </motion.div>

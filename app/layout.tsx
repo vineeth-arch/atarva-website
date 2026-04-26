@@ -1,27 +1,31 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, DM_Sans, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import ThemeProvider from "@/components/ui/ThemeProvider";
 
-const dmSerifDisplay = DM_Serif_Display({
-  subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
+const degularDisplay = localFont({
+  src: [
+    { path: "../public/fonts/DegularDisplay-Regular.otf", weight: "400", style: "normal" },
+    { path: "../public/fonts/DegularDisplay-RegularItalic.otf", weight: "400", style: "italic" },
+    { path: "../public/fonts/DegularDisplay-Semibold.otf", weight: "600", style: "normal" },
+    { path: "../public/fonts/DegularDisplay-SemiboldItalic.otf", weight: "600", style: "italic" },
+    { path: "../public/fonts/DegularDisplay-Bold.otf", weight: "700", style: "normal" },
+    { path: "../public/fonts/DegularDisplay-BoldItalic.otf", weight: "700", style: "italic" },
+  ],
   variable: "--font-display",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+const dmSans = localFont({
+  src: [
+    { path: "../public/fonts/DMSans-Light.ttf", weight: "300", style: "normal" },
+    { path: "../public/fonts/DMSans-Regular.ttf", weight: "400", style: "normal" },
+    { path: "../public/fonts/DMSans-Italic.ttf", weight: "400", style: "italic" },
+    { path: "../public/fonts/DMSans-Medium.ttf", weight: "500", style: "normal" },
+    { path: "../public/fonts/DMSans-SemiBold.ttf", weight: "600", style: "normal" },
+    { path: "../public/fonts/DMSans-Bold.ttf", weight: "700", style: "normal" },
+  ],
   variable: "--font-sans",
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-mono",
   display: "swap",
 });
 
@@ -57,6 +61,9 @@ export const metadata: Metadata = {
       "An interdisciplinary think tank and consultancy at the intersection of physics, CFD, design intelligence, and research.",
   },
   metadataBase: new URL("https://avarta.in"),
+  icons: {
+    icon: "/logos/favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -75,7 +82,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${dmSerifDisplay.variable} ${dmSans.variable} ${jetbrainsMono.variable} antialiased bg-midnight text-stellar`}
+        className={`${degularDisplay.variable} ${dmSans.variable} antialiased bg-midnight text-stellar`}
       >
         <ThemeProvider>{children}</ThemeProvider>
       </body>
