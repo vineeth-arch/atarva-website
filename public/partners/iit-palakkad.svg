@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 70" width="200" height="70">
-  <rect width="200" height="70" fill="none"/>
-  <text x="100" y="26" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="700" fill="#005F9E" letter-spacing="2">IITP</text>
-  <line x1="40" y1="33" x2="160" y2="33" stroke="#005F9E" stroke-width="1.5"/>
-  <text x="100" y="47" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#005F9E" letter-spacing="1">INDIAN INSTITUTE OF TECHNOLOGY</text>
-  <text x="100" y="59" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#005F9E" letter-spacing="1">PALAKKAD</text>
-</svg>
