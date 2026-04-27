@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 import VortexBackground from "@/components/ui/VortexBackground";
-import GlassSymbol from "@/components/ui/GlassSymbol";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -15,6 +15,26 @@ const fadeUp = {
     transition: { duration: 0.7, delay: i * 0.12, ease: EASE },
   }),
 };
+
+function RotatingMark({ size }: { size: number }) {
+  return (
+    <motion.div
+      style={{ width: size, height: size }}
+      animate={{ rotate: 360 }}
+      transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+      aria-hidden="true"
+    >
+      <Image
+        src="/logos/avarta-mark-color.svg"
+        alt=""
+        width={size}
+        height={size}
+        className="object-contain"
+        priority
+      />
+    </motion.div>
+  );
+}
 
 export default function Hero() {
   return (
@@ -137,35 +157,35 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: glass symbol — desktop (lg+) */}
+          {/* Right: rotating logo mark — desktop (lg+) */}
           <motion.div
             className="lg:col-span-2 hidden lg:flex justify-center items-center"
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.1, delay: 0.6, ease: EASE }}
           >
-            <GlassSymbol size="lg" />
+            <RotatingMark size={300} />
           </motion.div>
         </div>
 
-        {/* Glass symbol — tablet (md only, below text) */}
+        {/* Rotating logo mark — tablet (md only, below text) */}
         <motion.div
           className="hidden md:flex lg:hidden justify-center mt-16"
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.0, delay: 0.7, ease: EASE }}
         >
-          <GlassSymbol size="md" />
+          <RotatingMark size={220} />
         </motion.div>
 
-        {/* Glass symbol — mobile (sm and below) */}
+        {/* Rotating logo mark — mobile */}
         <motion.div
           className="flex md:hidden justify-center mt-12"
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.7, ease: EASE }}
         >
-          <GlassSymbol size="sm" />
+          <RotatingMark size={160} />
         </motion.div>
       </div>
 
