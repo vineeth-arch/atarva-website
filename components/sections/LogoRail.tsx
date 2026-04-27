@@ -15,13 +15,13 @@ type PartnerLogo = {
 
 const partners: PartnerLogo[] = [
   { name: "Alliance Educational Foundation", shortName: "AEF", sector: "Education", src: "/partners/alliance.svg" },
-  { name: "Sree Chitra Tirunal Institute for Medical Sciences & Technology", shortName: "SCTIMST", sector: "Medical Research", src: "/partners/sctimst.svg" },
-  { name: "National Institute of Design", shortName: "NID", sector: "Design", src: "/partners/nid.svg" },
-  { name: "Kerala Space Park", shortName: "KSPACE", sector: "Space Tech", src: "/partners/kspace.svg" },
-  { name: "Indian Institute of Technology Kanpur", shortName: "IITK", sector: "Engineering", src: "/partners/iit-kanpur.svg" },
+  { name: "Sree Chitra Tirunal Institute for Medical Sciences & Technology", shortName: "SCTIMST", sector: "Medical Research", src: "/partners/sctimst.png" },
+  { name: "National Institute of Design", shortName: "NID", sector: "Design", src: "/partners/nid.png" },
+  { name: "Kerala Space Park", shortName: "KSPACE", sector: "Space Tech", src: "/partners/kspace.png" },
+  { name: "Indian Institute of Technology Kanpur", shortName: "IITK", sector: "Engineering", src: "/partners/iit-kanpur.png" },
   { name: "Indian Space Research Organisation", shortName: "ISRO", sector: "Space", src: "/partners/isro.svg" },
   { name: "IIT Madras", shortName: "IITM", sector: "Engineering", src: "/partners/iit-madras.svg" },
-  { name: "IIT Palakkad", shortName: "IITP", sector: "Engineering", src: "/partners/iit-palakkad.svg" },
+  { name: "IIT Palakkad", shortName: "IITP", sector: "Engineering", src: "/partners/iit-palakkad.png" },
 ];
 
 function PartnerMark({ partner }: { partner: PartnerLogo }) {
