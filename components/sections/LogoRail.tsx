@@ -69,14 +69,6 @@ export default function LogoRail() {
       className="section-padding bg-midnight relative overflow-hidden"
       aria-labelledby="clients-heading"
     >
-      {/* keyframes defined here so they are always available */}
-      <style>{`
-        @keyframes logo-scroll {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-${totalWidth}px); }
-        }
-      `}</style>
-
       <div
         className="absolute inset-x-0 top-0 h-px pointer-events-none"
         style={{
@@ -117,19 +109,22 @@ export default function LogoRail() {
           aria-hidden="true"
         />
 
-        {/* scrolling track — doubled for seamless loop */}
-        <div
+        {/* scrolling track — doubled for seamless loop, Framer Motion x animation */}
+        <motion.div
           className="flex pb-4 pt-2"
-          style={{
-            gap: GAP,
-            width: "max-content",
-            animation: `logo-scroll ${partners.length * 3}s linear infinite`,
+          style={{ gap: GAP }}
+          animate={{ x: [0, -totalWidth] }}
+          transition={{
+            duration: partners.length * 3,
+            repeat: Infinity,
+            ease: "linear",
+            repeatType: "loop",
           }}
         >
           {[...partners, ...partners].map((partner, i) => (
             <PartnerMark key={i} partner={partner} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -20,7 +20,7 @@ function RotatingMark({ size }: { size: number }) {
   return (
     <motion.div
       style={{ width: size, height: size }}
-      animate={{ rotate: 360 }}
+      animate={{ rotate: -360 }}
       transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
       aria-hidden="true"
     >
