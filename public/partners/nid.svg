@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 70" width="200" height="70">
-  <rect width="200" height="70" fill="none"/>
-  <rect x="60" y="14" width="80" height="30" rx="2" fill="#C41230"/>
-  <text x="100" y="34" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="900" fill="#FFFFFF" letter-spacing="3">NID</text>
-  <text x="100" y="56" text-anchor="middle" font-family="Arial, sans-serif" font-size="7.5" fill="#C41230" letter-spacing="1">NATIONAL INSTITUTE OF DESIGN</text>
-</svg>
