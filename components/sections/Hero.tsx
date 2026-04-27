@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import Button from "@/components/ui/Button";
 import VortexBackground from "@/components/ui/VortexBackground";
 
@@ -16,7 +17,21 @@ const fadeUp = {
   }),
 };
 
+function useDarkMode() {
+  const [dark, setDark] = useState(true);
+  useEffect(() => {
+    const el = document.documentElement;
+    const update = () => setDark(!el.classList.contains("light"));
+    update();
+    const obs = new MutationObserver(update);
+    obs.observe(el, { attributes: true, attributeFilter: ["class"] });
+    return () => obs.disconnect();
+  }, []);
+  return dark;
+}
+
 function RotatingMark({ size }: { size: number }) {
+  const dark = useDarkMode();
   return (
     <motion.div
       style={{ width: size, height: size }}
@@ -25,7 +40,7 @@ function RotatingMark({ size }: { size: number }) {
       aria-hidden="true"
     >
       <Image
-        src="/logos/avarta-mark-color.svg"
+        src={dark ? "/logos/avarta-mark-white.svg" : "/logos/avarta-mark-color.svg"}
         alt=""
         width={size}
         height={size}
