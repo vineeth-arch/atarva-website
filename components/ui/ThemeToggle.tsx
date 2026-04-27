@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useTheme } from "./ThemeProvider";
 
 export default function ThemeToggle() {
@@ -11,82 +10,58 @@ export default function ThemeToggle() {
     <button
       onClick={toggle}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      className="fixed right-5 bottom-8 z-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flow focus-visible:ring-offset-2 focus-visible:ring-offset-midnight"
+      className="fixed right-5 bottom-8 z-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flow"
+      style={{
+        width: 64,
+        height: 64,
+        borderRadius: "50%",
+        // Dark mode: crescent — inset shadow in page-background colour cuts away upper-right of the circle
+        // Light mode: full warm yellow circle (sun)
+        background: isDark
+          ? "#020c38"
+          : "linear-gradient(135deg, #fcd93a 0%, #f07c20 100%)",
+        boxShadow: isDark
+          ? "inset -20px 10px 0 0 #030730, 0 4px 24px rgba(0,0,0,0.5), 0 0 0 1px rgba(77,163,255,0.18)"
+          : "0 4px 24px rgba(249,201,35,0.55), 0 0 0 2px rgba(240,124,32,0.25)",
+        transition: "background 0.4s ease, box-shadow 0.4s ease",
+      }}
     >
-      {/* Pill track */}
-      <div
-        className="relative flex items-center rounded-full transition-colors duration-300"
-        style={{
-          width: 76,
-          height: 38,
-          background: isDark
-            ? "linear-gradient(135deg, rgba(0,2,43,0.92) 0%, rgba(0,20,80,0.85) 100%)"
-            : "linear-gradient(135deg, #dde4ff 0%, #f0f3ff 100%)",
-          border: isDark
-            ? "1px solid rgba(77,163,255,0.22)"
-            : "1px solid rgba(0,2,43,0.12)",
-          boxShadow: isDark
-            ? "0 4px 20px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.05)"
-            : "0 4px 16px rgba(0,2,43,0.10), inset 0 1px 0 rgba(255,255,255,0.9)",
-          backdropFilter: "blur(14px)",
-          WebkitBackdropFilter: "blur(14px)",
-        }}
-      >
-        {/* Moon icon — left */}
+      {/* Both icons always shown — active is full brightness, inactive dimmed to 10% */}
+      <div className="flex items-center justify-center gap-2.5">
         <span
-          className="absolute left-0 flex items-center justify-center transition-opacity duration-300"
-          style={{ width: 38, height: 38, opacity: isDark ? 1 : 0.35 }}
+          style={{ opacity: isDark ? 1 : 0.10, transition: "opacity 0.3s" }}
           aria-hidden="true"
         >
-          <MoonIcon />
+          <MoonIcon dark={isDark} />
         </span>
-
-        {/* Sun icon — right */}
         <span
-          className="absolute right-0 flex items-center justify-center transition-opacity duration-300"
-          style={{ width: 38, height: 38, opacity: isDark ? 0.35 : 1 }}
+          style={{ opacity: isDark ? 0.10 : 1, transition: "opacity 0.3s" }}
           aria-hidden="true"
         >
-          <SunIcon />
+          <SunIcon dark={isDark} />
         </span>
-
-        {/* Sliding indicator */}
-        <motion.div
-          className="absolute rounded-full"
-          animate={{ x: isDark ? 3 : 41 }}
-          transition={{ type: "spring", stiffness: 500, damping: 35 }}
-          style={{
-            width: 32,
-            height: 32,
-            top: 3,
-            background: isDark
-              ? "linear-gradient(135deg, #1a3fff 0%, #4DA3FF 100%)"
-              : "linear-gradient(135deg, #f9c923 0%, #f5a623 100%)",
-            boxShadow: isDark
-              ? "0 2px 10px rgba(0,80,255,0.55)"
-              : "0 2px 10px rgba(245,166,35,0.55)",
-          }}
-        />
       </div>
     </button>
   );
 }
 
-function MoonIcon() {
+function MoonIcon({ dark }: { dark: boolean }) {
   return (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-      stroke="rgba(180,210,255,0.9)" strokeWidth="2"
-      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+      stroke={dark ? "rgba(200,225,255,1)" : "rgba(200,225,255,0.9)"}
+      strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+      aria-hidden="true">
       <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
     </svg>
   );
 }
 
-function SunIcon() {
+function SunIcon({ dark }: { dark: boolean }) {
   return (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-      stroke="rgba(180,100,0,0.9)" strokeWidth="2"
-      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+      stroke={dark ? "rgba(253,220,60,0.9)" : "rgba(120,50,0,1)"}
+      strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+      aria-hidden="true">
       <circle cx="12" cy="12" r="4" />
       <line x1="12" y1="2" x2="12" y2="4" />
       <line x1="12" y1="20" x2="12" y2="22" />
