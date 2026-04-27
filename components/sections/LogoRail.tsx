@@ -24,25 +24,36 @@ const partners: PartnerLogo[] = [
   { name: "IIT Palakkad", shortName: "IIT Palakkad", sector: "Engineering", src: "/partners/iit-palakkad.png" },
 ];
 
+// Card width + gap must match the CSS animation offset below.
+// 8 cards × (320px + 24px gap) = 2752px → animate by -2752px for one full loop.
+const CARD_W = 320;
+const GAP = 24;
+
 function PartnerMark({ partner }: { partner: PartnerLogo }) {
   return (
-    <div className="flex flex-shrink-0 flex-col items-center gap-2 w-44">
-      <div className="flex h-16 w-full items-center justify-center rounded border border-gray-200 bg-white px-4 py-2 shadow-sm">
+    <div
+      className="flex flex-shrink-0 flex-col items-center gap-3"
+      style={{ width: CARD_W }}
+    >
+      <div
+        className="flex w-full items-center justify-center rounded-lg border border-gray-200 bg-white shadow-sm"
+        style={{ height: 160, padding: "20px 28px" }}
+      >
         {partner.src ? (
           <Image
             src={partner.src}
             alt={partner.name}
-            width={144}
-            height={48}
-            className="max-h-12 max-w-[144px] object-contain"
+            width={260}
+            height={110}
+            className="max-h-[110px] max-w-full object-contain"
           />
         ) : (
-          <span className="font-mono text-xs font-semibold uppercase tracking-widest text-gray-400">
+          <span className="font-mono text-sm font-semibold uppercase tracking-widest text-gray-400">
             {partner.shortName}
           </span>
         )}
       </div>
-      <p className="text-center font-sans text-[11px] font-medium leading-tight text-stellar/60">
+      <p className="text-center font-sans text-xs font-medium leading-snug text-stellar/55">
         {partner.shortName}
       </p>
     </div>
@@ -50,12 +61,22 @@ function PartnerMark({ partner }: { partner: PartnerLogo }) {
 }
 
 export default function LogoRail() {
+  const totalWidth = partners.length * (CARD_W + GAP);
+
   return (
     <section
       id="clients"
       className="section-padding bg-midnight relative overflow-hidden"
       aria-labelledby="clients-heading"
     >
+      {/* keyframes defined here so they are always available */}
+      <style>{`
+        @keyframes logo-scroll {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-${totalWidth}px); }
+        }
+      `}</style>
+
       <div
         className="absolute inset-x-0 top-0 h-px pointer-events-none"
         style={{
@@ -84,19 +105,26 @@ export default function LogoRail() {
       </div>
 
       <div className="relative overflow-hidden" aria-label="Client and institution logos">
+        {/* edge fades */}
         <div
-          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20"
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24"
           style={{ background: "linear-gradient(to right, rgb(var(--c-bg)), transparent)" }}
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20"
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24"
           style={{ background: "linear-gradient(to left, rgb(var(--c-bg)), transparent)" }}
           aria-hidden="true"
         />
+
+        {/* scrolling track — doubled for seamless loop */}
         <div
-          className="flex w-max gap-6 pb-4 pt-2"
-          style={{ animation: "marquee 30s linear infinite", willChange: "transform" }}
+          className="flex pb-4 pt-2"
+          style={{
+            gap: GAP,
+            width: "max-content",
+            animation: `logo-scroll ${partners.length * 3}s linear infinite`,
+          }}
         >
           {[...partners, ...partners].map((partner, i) => (
             <PartnerMark key={i} partner={partner} />
