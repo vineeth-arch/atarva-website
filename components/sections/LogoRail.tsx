@@ -14,36 +14,37 @@ type PartnerLogo = {
 };
 
 const partners: PartnerLogo[] = [
-  { name: "Alliance Educational Foundation", shortName: "AEF", sector: "Education", src: "/partners/alliance.svg" },
+  { name: "Alliance Educational Foundation", shortName: "Alliance", sector: "Education", src: "/partners/alliance.svg" },
   { name: "Sree Chitra Tirunal Institute for Medical Sciences & Technology", shortName: "SCTIMST", sector: "Medical Research", src: "/partners/sctimst.png" },
   { name: "National Institute of Design", shortName: "NID", sector: "Design", src: "/partners/nid.svg" },
   { name: "Kerala Space Park", shortName: "KSPACE", sector: "Space Tech", src: "/partners/kspace.png" },
-  { name: "Indian Institute of Technology Kanpur", shortName: "IITK", sector: "Engineering", src: "/partners/iit-kanpur.png" },
+  { name: "Indian Institute of Technology Kanpur", shortName: "IIT Kanpur", sector: "Engineering", src: "/partners/iit-kanpur.png" },
   { name: "Indian Space Research Organisation", shortName: "ISRO", sector: "Space", src: "/partners/isro.svg" },
-  { name: "IIT Madras", shortName: "IITM", sector: "Engineering", src: "/partners/iit-madras.svg" },
-  { name: "IIT Palakkad", shortName: "IITP", sector: "Engineering", src: "/partners/iit-palakkad.png" },
+  { name: "IIT Madras", shortName: "IIT Madras", sector: "Engineering", src: "/partners/iit-madras.svg" },
+  { name: "IIT Palakkad", shortName: "IIT Palakkad", sector: "Engineering", src: "/partners/iit-palakkad.png" },
 ];
 
 function PartnerMark({ partner }: { partner: PartnerLogo }) {
-  if (partner.src) {
-    return (
-      <div className="flex h-16 w-44 flex-shrink-0 items-center justify-center rounded border border-gray-200 bg-white px-4 py-2 shadow-sm">
-        <Image
-          src={partner.src}
-          alt={partner.name}
-          width={144}
-          height={48}
-          className="max-h-12 max-w-[144px] object-contain"
-        />
-      </div>
-    );
-  }
-
   return (
-    <div className="group relative flex h-16 w-44 flex-shrink-0 items-center justify-center rounded border border-subtle bg-stellar/[0.025] px-4 py-2 transition-all duration-300 hover:border-cobalt/30 hover:bg-cobalt/[0.045]">
-      <span className="font-mono text-xs font-semibold uppercase tracking-widest text-stellar/50">
+    <div className="flex flex-shrink-0 flex-col items-center gap-2 w-44">
+      <div className="flex h-16 w-full items-center justify-center rounded border border-gray-200 bg-white px-4 py-2 shadow-sm">
+        {partner.src ? (
+          <Image
+            src={partner.src}
+            alt={partner.name}
+            width={144}
+            height={48}
+            className="max-h-12 max-w-[144px] object-contain"
+          />
+        ) : (
+          <span className="font-mono text-xs font-semibold uppercase tracking-widest text-gray-400">
+            {partner.shortName}
+          </span>
+        )}
+      </div>
+      <p className="text-center font-sans text-[11px] font-medium leading-tight text-stellar/60">
         {partner.shortName}
-      </span>
+      </p>
     </div>
   );
 }
@@ -93,7 +94,10 @@ export default function LogoRail() {
           style={{ background: "linear-gradient(to left, rgb(var(--c-bg)), transparent)" }}
           aria-hidden="true"
         />
-        <div className="marquee-track flex w-max gap-5 py-2">
+        <div
+          className="flex w-max gap-6 pb-4 pt-2"
+          style={{ animation: "marquee 30s linear infinite", willChange: "transform" }}
+        >
           {[...partners, ...partners].map((partner, i) => (
             <PartnerMark key={i} partner={partner} />
           ))}
