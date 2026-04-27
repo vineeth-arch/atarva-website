@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 70" width="200" height="70">
+  <rect width="200" height="70" fill="none"/>
+  <text x="100" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="900" fill="#003E8A" letter-spacing="3">KSPACE</text>
+  <text x="100" y="46" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#CC2200" letter-spacing="1.5">KERALA SPACE PARK</text>
+  <polygon points="88,56 100,50 112,56 108,62 92,62" fill="#003E8A" opacity="0.15"/>
+</svg>
