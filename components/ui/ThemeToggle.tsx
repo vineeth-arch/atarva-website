@@ -12,13 +12,15 @@ export default function ThemeToggle() {
       onClick={toggle}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       title={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      className="fixed right-5 bottom-8 z-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flow focus-visible:ring-offset-2 focus-visible:ring-offset-midnight"
+      className="fixed z-[90] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-flow focus-visible:ring-offset-2 focus-visible:ring-offset-midnight"
       style={{
         width: 120,
         height: 60,
         padding: 4,
         borderRadius: 9999,
-        position: "relative",
+        position: "fixed",
+        right: "max(1.25rem, calc(env(safe-area-inset-right) + 1rem))",
+        bottom: "max(1.5rem, calc(env(safe-area-inset-bottom) + 1rem))",
         overflow: "hidden",
         background: isDark
           ? "linear-gradient(145deg, #06066e 0%, #1414b8 50%, #0a0aaa 100%)"
@@ -26,10 +28,12 @@ export default function ThemeToggle() {
         border: isDark
           ? "1px solid rgba(157, 183, 255, 0.32)"
           : "1px solid rgba(191, 129, 0, 0.4)",
+        zIndex: 90,
         boxShadow: isDark
           ? "inset 0 2px 8px rgba(0,0,50,0.6), 0 4px 20px rgba(0,0,200,0.35), 0 0 0 1px rgba(77,163,255,0.2)"
           : "inset 0 2px 8px rgba(120,80,0,0.25), 0 4px 20px rgba(249,180,0,0.45), 0 0 0 1px rgba(220,140,0,0.35)",
         transition: "background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease",
+        cursor: "pointer",
       }}
     >
       <span
