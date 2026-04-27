@@ -16,7 +16,7 @@ type PartnerLogo = {
 const partners: PartnerLogo[] = [
   { name: "Alliance Educational Foundation", shortName: "AEF", sector: "Education", src: "/partners/alliance.svg" },
   { name: "Sree Chitra Tirunal Institute for Medical Sciences & Technology", shortName: "SCTIMST", sector: "Medical Research", src: "/partners/sctimst.png" },
-  { name: "National Institute of Design", shortName: "NID", sector: "Design", src: "/partners/nid.png" },
+  { name: "National Institute of Design", shortName: "NID", sector: "Design", src: "/partners/nid.svg" },
   { name: "Kerala Space Park", shortName: "KSPACE", sector: "Space Tech", src: "/partners/kspace.png" },
   { name: "Indian Institute of Technology Kanpur", shortName: "IITK", sector: "Engineering", src: "/partners/iit-kanpur.png" },
   { name: "Indian Space Research Organisation", shortName: "ISRO", sector: "Space", src: "/partners/isro.svg" },
@@ -27,50 +27,23 @@ const partners: PartnerLogo[] = [
 function PartnerMark({ partner }: { partner: PartnerLogo }) {
   if (partner.src) {
     return (
-      <div className="group flex min-h-[120px] items-center justify-center rounded-sm border border-gray-200 bg-white px-6 py-5 shadow-sm transition-all duration-300 hover:border-cobalt/40 hover:shadow-md">
+      <div className="flex h-16 w-44 flex-shrink-0 items-center justify-center rounded border border-gray-200 bg-white px-4 py-2 shadow-sm">
         <Image
           src={partner.src}
           alt={partner.name}
-          width={160}
-          height={56}
-          className="max-h-14 max-w-[160px] object-contain transition duration-300"
+          width={144}
+          height={48}
+          className="max-h-12 max-w-[144px] object-contain"
         />
       </div>
     );
   }
 
   return (
-    <div className="group relative flex min-h-[132px] items-center justify-center rounded-sm border border-subtle bg-stellar/[0.025] px-6 py-7 transition-all duration-300 hover:border-cobalt/30 hover:bg-cobalt/[0.045]">
-      <div
-        className="absolute inset-x-5 top-0 h-px opacity-70"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, rgba(77,163,255,0.45), transparent)",
-        }}
-        aria-hidden="true"
-      />
-      <div className="flex flex-col items-center gap-3 text-center">
-        <div
-          className="grid h-14 w-14 place-items-center rounded-full border text-sm font-semibold text-stellar/72"
-          style={{
-            borderColor: "rgba(77,163,255,0.30)",
-            background:
-              "radial-gradient(circle at 34% 24%, rgba(77,163,255,0.14), rgba(0,80,255,0.05) 48%, transparent 100%)",
-            boxShadow: "inset 0 1px 0 rgba(240,242,248,0.10)",
-          }}
-          aria-hidden="true"
-        >
-          {partner.shortName}
-        </div>
-        <div>
-          <p className="font-display text-[18px] font-semibold leading-tight text-stellar/78">
-            {partner.name}
-          </p>
-          <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-stellar/38">
-            {partner.sector}
-          </p>
-        </div>
-      </div>
+    <div className="group relative flex h-16 w-44 flex-shrink-0 items-center justify-center rounded border border-subtle bg-stellar/[0.025] px-4 py-2 transition-all duration-300 hover:border-cobalt/30 hover:bg-cobalt/[0.045]">
+      <span className="font-mono text-xs font-semibold uppercase tracking-widest text-stellar/50">
+        {partner.shortName}
+      </span>
     </div>
   );
 }
@@ -107,19 +80,24 @@ export default function LogoRail() {
             A curated field of institutions, industry, and ambitious teams.
           </h2>
         </motion.div>
+      </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.75, ease: EASE }}
-          className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
-          aria-label="Client and institution logo placements"
-        >
-          {partners.map((partner) => (
-            <PartnerMark key={partner.name} partner={partner} />
+      <div className="relative overflow-hidden" aria-label="Client and institution logos">
+        <div
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20"
+          style={{ background: "linear-gradient(to right, rgb(var(--c-bg)), transparent)" }}
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20"
+          style={{ background: "linear-gradient(to left, rgb(var(--c-bg)), transparent)" }}
+          aria-hidden="true"
+        />
+        <div className="marquee-track flex w-max gap-5 py-2">
+          {[...partners, ...partners].map((partner, i) => (
+            <PartnerMark key={i} partner={partner} />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
